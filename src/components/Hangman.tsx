@@ -54,6 +54,7 @@ const Hangman = () => {
         key={ltr}
         onClick={handleGuess}
         disabled={state.guessed.has(ltr)}
+        type="button"
       >
         {ltr}
       </button>
@@ -99,7 +100,7 @@ const Hangman = () => {
       <p className="Hangman-word">{!gameOver ? guessedWord() : state.answer}</p>
       <p className="Hangman-btns">{gameState}</p>
       <br />
-      <button className="restartBtn" onClick={restart}>
+      <button type="button" className="restartBtn" onClick={restart}>
         Restart
       </button>
     </div>
