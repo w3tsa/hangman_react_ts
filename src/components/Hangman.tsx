@@ -55,6 +55,7 @@ const Hangman = () => {
         onClick={handleGuess}
         disabled={state.guessed.has(ltr)}
         type="button"
+        data-testid={ltr}
       >
         {ltr}
       </button>
@@ -95,6 +96,7 @@ const Hangman = () => {
         src={defaultProps.images[state.nWrong]}
         alt={`${state.nWrong} out of ${defaultProps.maxWrong} guesses`}
         className="hangman_main_image"
+        data-testid="hangman_image"
       />
       <p className="Hangman-wrong">Guessed wrong: {state.nWrong}</p>
       <p className="Hangman-word">{!gameOver ? guessedWord() : state.answer}</p>
