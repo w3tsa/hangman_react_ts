@@ -57,6 +57,8 @@ describe("Hangman", () => {
     expect(gameState).toBeInTheDocument();
     const audio = screen.getByTestId("audio");
     expect(audio).not.toHaveProperty("paused", false);
+    const canvas = screen.getByRole("canvas");
+    expect(canvas).toBeInTheDocument();
   });
 
   it("renders 'You Win!' when the game is over", async () => {
