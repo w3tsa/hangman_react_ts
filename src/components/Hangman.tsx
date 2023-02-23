@@ -80,14 +80,14 @@ const Hangman = () => {
     <div className="Hangman">
       {isWinner && (
         <>
-          <audio autoPlay>
+          <audio data-testid="audio" autoPlay>
             <source src={win} type="audio/mp3" />
           </audio>
           <Confetti />
         </>
       )}
       {gameOver && (
-        <audio autoPlay>
+        <audio role="audio" data-testid="audio" autoPlay>
           <source src={lose} type="audio/mp3" />
         </audio>
       )}

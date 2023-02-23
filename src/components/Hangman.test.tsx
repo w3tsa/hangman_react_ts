@@ -55,6 +55,8 @@ describe("Hangman", () => {
     expect(result).toHaveAttribute("alt", "6 out of 6 guesses");
     const gameState = screen.getByText("You Lose!");
     expect(gameState).toBeInTheDocument();
+    const audio = screen.getByTestId("audio");
+    expect(audio).not.toHaveProperty("paused", false);
   });
 
   it("renders 'You Win!' when the game is over", async () => {
@@ -75,5 +77,7 @@ describe("Hangman", () => {
     expect(result).toHaveAttribute("alt", "0 out of 6 guesses");
     const gameState = screen.getByText("You Win!");
     expect(gameState).toBeInTheDocument();
+    const audio = screen.getByTestId("audio");
+    expect(audio).not.toHaveProperty("paused", false);
   });
 });
