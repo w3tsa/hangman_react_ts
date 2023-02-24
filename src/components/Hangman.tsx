@@ -11,6 +11,7 @@ import img3 from "../assets/3.png";
 import img4 from "../assets/4.png";
 import img5 from "../assets/5.png";
 import img6 from "../assets/6.png";
+import winImage from "../assets/win.png";
 
 import win from "../assets/winner.mp3";
 import lose from "../assets/lose.mp3";
@@ -31,6 +32,7 @@ const Hangman = () => {
     answer: randomWord(),
   };
   const [state, setState] = useState(defaultState);
+  const [hint, setHint] = useState("");
   const gameOver = state.nWrong >= defaultProps.maxWrong;
   const isWinner = !guessedWord().includes("_");
   let gameState: JSX.Element[] | string = generateButtons();
@@ -75,6 +77,13 @@ const Hangman = () => {
     setState(defaultState);
   }
 
+  function handleHint() {
+    for (let ltr of state.answer) {
+      if (!state.guessed.has(ltr)) {
+        setHint(ltr);
+      }
+    }
+  }
   // render
   return (
     <div className="Hangman">
@@ -93,12 +102,34 @@ const Hangman = () => {
       )}
       <h1>Hangman</h1>
       <img
-        src={defaultProps.images[state.nWrong]}
+        src={isWinner ? winImage : defaultProps.images[state.nWrong]}
         alt={`${state.nWrong} out of ${defaultProps.maxWrong} guesses`}
         className="hangman_main_image"
         data-testid="hangman_image"
       />
       <p className="Hangman-wrong">Guessed wrong: {state.nWrong}</p>
+      <p
+        style={{ cursor: "pointer", position: "relative" }}
+        role={"button"}
+        onClick={handleHint}
+      >
+        Hint ⚡️{" "}
+        {hint && (
+          <span
+            style={{
+              background: "orange",
+              padding: "2px 15px",
+              bottom: "-3px",
+              borderRadius: "5px",
+              fontSize: "1.3rem",
+              fontWeight: "bold",
+              position: "absolute",
+            }}
+          >
+            {hint}
+          </span>
+        )}
+      </p>
       <p className="Hangman-word">{!gameOver ? guessedWord() : state.answer}</p>
       <p className="Hangman-btns">{gameState}</p>
       <br />
