@@ -92,7 +92,7 @@ const Hangman = () => {
           <audio data-testid="audio" autoPlay>
             <source src={win} type="audio/mp3" />
           </audio>
-          <Confetti />
+          <Confetti width={window.innerWidth} height={window.innerHeight} />
         </>
       )}
       {gameOver && (
@@ -113,7 +113,7 @@ const Hangman = () => {
         role={"button"}
         onClick={handleHint}
       >
-        Hint ⚡️{" "}
+        Hint💡
         {hint && (
           <span
             style={{
