@@ -75,6 +75,7 @@ const Hangman = () => {
 
   function restart() {
     setState(defaultState);
+    setHint("");
   }
 
   function handleHint() {
