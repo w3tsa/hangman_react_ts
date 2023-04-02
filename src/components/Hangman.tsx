@@ -101,14 +101,17 @@ const Hangman = () => {
           <source src={lose} type="audio/mp3" />
         </audio>
       )}
-      <h1>Hangman</h1>
+      <h1 className="title">Hangman</h1>
       <img
         src={isWinner ? winImage : defaultProps.images[state.nWrong]}
         alt={`${state.nWrong} out of ${defaultProps.maxWrong} guesses`}
         className="hangman_main_image"
         data-testid="hangman_image"
       />
-      <p className="Hangman-wrong">Guessed wrong: {state.nWrong}</p>
+
+      <p className="Hangman-wrong" style={{ marginRight: "5px" }}>
+        Guessed wrong: {state.nWrong}
+      </p>
       <p
         style={{ cursor: "pointer", position: "relative" }}
         role={"button"}
