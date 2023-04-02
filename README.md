@@ -19,11 +19,11 @@
 - [ ] create a utils folder
 - [ ] create a generate random word function that returns a random word
       from the data file
-  - [ ] cratea default states and default props
+  - [ ] create default states and default props
   - [ ] create the type definitions for default states and props
-  - [ ] createa buttons with letter
+  - [ ] create buttons with letter
   - [ ] create reset button
 - [ ] stretch:
   - [ ] add audio
-  - [ ] add confeitty package: `npm i react-confetti`
+  - [ ] add confetti package: `npm i react-confetti`
   - [ ] add the hint functionality
